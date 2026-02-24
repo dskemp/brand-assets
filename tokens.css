@@ -1,0 +1,380 @@
+/* ═══════════════════════════════════════════════════════════════
+   DESIGN TOKENS — David S. Kemp
+   Canonical source of truth for all visual design decisions.
+
+   This file contains ONLY CSS custom properties on :root.
+   No selectors. No component styles. No resets.
+
+   Import via <link> or @import from any independent repository
+   to inherit the full brand vocabulary.
+
+   Versioning: append ?v=MAJOR.MINOR.PATCH to the URL.
+   Current version: 1.0.0
+   Last updated: 2026-02-24
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+
+  /* ─────────────────────────────────────────
+     1. COLOR PALETTE
+     ───────────────────────────────────────── */
+
+  /* 1a. Primary — Navy blue family
+     Derived from UC Berkeley (#003262) and Rice (#00205B). */
+  --color-primary-900: #001A3A;
+  --color-primary-800: #002959;   /* ← brand primary */
+  --color-primary-700: #1E3A8A;   /* ← mid-blue */
+  --color-primary-600: #2B4FA3;
+  --color-primary-500: #3B63B8;
+  --color-primary-400: #5A80CC;
+  --color-primary-300: #8BA5DB;
+  --color-primary-200: #B8CAE8;
+  --color-primary-100: #E0E8F5;
+  --color-primary-50:  #F0F4FA;
+
+  /* 1b. Accent — Gold
+     St. Mark's gold. Use sparingly: borders, highlights, focus rings. */
+  --color-accent-600: #C9A600;
+  --color-accent-500: #FFD200;   /* ← brand gold */
+  --color-accent-400: #FFE04D;
+  --color-accent-300: #FFEB80;
+  --color-accent-200: #FFF3B3;
+  --color-accent-100: #FFF9DB;
+  --color-accent-50:  #FFFCED;
+
+  /* 1c. Neutral — Gray scale */
+  --color-neutral-900: #1A202C;
+  --color-neutral-800: #2D3748;   /* ← text primary */
+  --color-neutral-700: #4A5568;   /* ← text secondary, dark gray */
+  --color-neutral-600: #718096;
+  --color-neutral-500: #8B9096;   /* ← secondary gray */
+  --color-neutral-400: #A0AEC0;
+  --color-neutral-300: #CBD5E0;
+  --color-neutral-200: #E2E8F0;
+  --color-neutral-100: #EDF2F7;
+  --color-neutral-50:  #F5F6F7;   /* ← light gray */
+  --color-neutral-0:   #FFFFFF;
+
+  /* 1d. Semantic — Status colors
+     Chosen to harmonize with the navy/gold palette.
+     Each has a foreground (text/icon), background (subtle fill),
+     and border variant. */
+
+  /* Success */
+  --color-success-700: #1B5E20;
+  --color-success-600: #2E7D32;
+  --color-success-500: #43A047;
+  --color-success-100: #E8F5E9;
+  --color-success-border: #A5D6A7;
+
+  /* Error */
+  --color-error-700:   #B71C1C;
+  --color-error-600:   #C62828;
+  --color-error-500:   #E53935;
+  --color-error-100:   #FFEBEE;
+  --color-error-border: #EF9A9A;
+
+  /* Warning */
+  --color-warning-700: #E65100;
+  --color-warning-600: #F57C00;
+  --color-warning-500: #FB8C00;
+  --color-warning-100: #FFF3E0;
+  --color-warning-border: #FFCC80;
+
+  /* Info */
+  --color-info-700:    #1565C0;
+  --color-info-600:    #1E3A8A;   /* reuses primary-700 */
+  --color-info-500:    #42A5F5;
+  --color-info-100:    #E3F2FD;
+  --color-info-border: #90CAF9;
+
+
+  /* 1e. Semantic role aliases
+     Map palette values to functional roles.
+     Consuming projects should prefer these over raw palette tokens
+     when the usage is semantic (e.g., "the primary action color")
+     rather than decorative. */
+
+  --color-primary:       var(--color-primary-800);
+  --color-primary-hover: var(--color-primary-700);
+  --color-accent:        var(--color-accent-500);
+  --color-accent-hover:  var(--color-accent-600);
+
+  --color-text:          var(--color-neutral-800);
+  --color-text-muted:    var(--color-neutral-700);
+  --color-text-faint:    var(--color-neutral-500);
+  --color-text-inverse:  var(--color-neutral-0);
+
+  --color-link:          var(--color-primary-700);
+  --color-link-hover:    var(--color-primary-800);
+  --color-link-visited:  var(--color-primary-600);
+
+  --color-focus-ring:    var(--color-accent-500);
+
+  --color-surface:       var(--color-neutral-0);
+  --color-surface-alt:   var(--color-neutral-50);
+  --color-surface-raised: var(--color-neutral-0);
+  --color-surface-inverse: var(--color-primary-800);
+
+  --color-border:        var(--color-neutral-200);
+  --color-border-light:  var(--color-neutral-100);
+  --color-border-strong: var(--color-neutral-300);
+
+  /* Legacy aliases — backward compatibility with existing projects.
+     Prefer the semantic names above in new work. */
+  --primary-blue:    var(--color-primary-800);
+  --mid-blue:        var(--color-primary-700);
+  --accent-gold:     var(--color-accent-500);
+  --secondary-gray:  var(--color-neutral-500);
+  --light-gray:      var(--color-neutral-50);
+  --dark-gray:       var(--color-neutral-700);
+  --white:           var(--color-neutral-0);
+  --text-primary:    var(--color-neutral-800);
+  --text-secondary:  var(--color-neutral-700);
+
+
+  /* ─────────────────────────────────────────
+     2. TYPOGRAPHY
+     ───────────────────────────────────────── */
+
+  /* 2a. Font families
+     Body: Source Serif 4 (Google Fonts), serif fallback stack.
+     Headings/UI: Inter (Google Fonts), system sans fallback.
+     Code: system monospace stack.
+
+     Consuming projects must load the web fonts themselves:
+     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+  */
+  --font-body:    'Source Serif 4', 'Charter', 'Bitstream Charter', 'Sitka Text', Cambria, Georgia, serif;
+  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-ui:      'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono:    'SF Mono', 'Cascadia Code', 'Fira Code', Consolas, 'Liberation Mono', monospace;
+
+  /* 2b. Font weights */
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  /* 2c. Fluid type scale
+     Uses clamp(min, preferred, max) for smooth scaling.
+     The preferred value uses viewport width so type grows
+     continuously between the min and max breakpoints.
+
+     Scale ratio: ~1.2 (minor third), anchored at 1rem = 16px.
+     Named by purpose rather than arbitrary size numbers. */
+
+  --text-xs:    clamp(0.80rem,  0.76rem + 0.2vw,  0.875rem);  /* ~13–14px  Fine print, captions           */
+  --text-sm:    clamp(0.90rem,  0.86rem + 0.2vw,  1rem);      /* ~14–16px  Metadata, small UI labels       */
+  --text-base:  clamp(1.05rem,  1.00rem + 0.2vw,  1.125rem);  /* ~17–18px  Body text                       */
+  --text-lg:    clamp(1.15rem,  1.08rem + 0.3vw,  1.25rem);   /* ~18–20px  Lead paragraphs, large body     */
+  --text-xl:    clamp(1.25rem,  1.15rem + 0.5vw,  1.50rem);   /* ~20–24px  h4, card titles                 */
+  --text-2xl:   clamp(1.40rem,  1.25rem + 0.7vw,  1.875rem);  /* ~22–30px  h3, section subheads             */
+  --text-3xl:   clamp(1.60rem,  1.35rem + 1.1vw,  2.375rem);  /* ~26–38px  h2, section titles               */
+  --text-4xl:   clamp(1.90rem,  1.55rem + 1.5vw,  2.875rem);  /* ~30–46px  h1, page titles                  */
+  --text-5xl:   clamp(2.20rem,  1.70rem + 2.2vw,  3.75rem);   /* ~35–60px  Display / hero (use sparingly)   */
+
+  /* 2d. Line heights
+     Tighter for headings (where large type creates excess
+     vertical space) and more generous for body text
+     (where readability demands it). */
+  --leading-none:    1;
+  --leading-tight:   1.25;
+  --leading-snug:    1.35;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.65;
+  --leading-loose:   1.8;
+
+  /* 2e. Letter spacing */
+  --tracking-tighter: -0.03em;
+  --tracking-tight:   -0.015em;
+  --tracking-normal:   0;
+  --tracking-wide:     0.02em;
+  --tracking-wider:    0.04em;
+  --tracking-widest:   0.08em;
+
+  /* 2f. Measure (line length)
+     Per Butterick: 45–90 characters. 65ch is the sweet spot. */
+  --measure-narrow: 45ch;
+  --measure:        65ch;
+  --measure-wide:   85ch;
+
+
+  /* ─────────────────────────────────────────
+     3. SPACING
+     ───────────────────────────────────────── */
+
+  /* 8px base grid.
+     Named by step rather than pixel value so the scale
+     can be adjusted globally without renaming tokens. */
+  --space-0:   0;
+  --space-px:  1px;
+  --space-0-5: 0.125rem;  /*  2px */
+  --space-1:   0.25rem;   /*  4px */
+  --space-2:   0.5rem;    /*  8px */
+  --space-3:   0.75rem;   /* 12px */
+  --space-4:   1rem;      /* 16px */
+  --space-5:   1.25rem;   /* 20px */
+  --space-6:   1.5rem;    /* 24px */
+  --space-8:   2rem;      /* 32px */
+  --space-10:  2.5rem;    /* 40px */
+  --space-12:  3rem;      /* 48px */
+  --space-16:  4rem;      /* 64px */
+  --space-20:  5rem;      /* 80px */
+  --space-24:  6rem;      /* 96px */
+
+  /* Semantic spacing aliases */
+  --space-xs:  var(--space-2);   /*  8px */
+  --space-sm:  var(--space-4);   /* 16px */
+  --space-md:  var(--space-6);   /* 24px */
+  --space-lg:  var(--space-8);   /* 32px */
+  --space-xl:  var(--space-12);  /* 48px */
+  --space-2xl: var(--space-16);  /* 64px */
+  --space-3xl: var(--space-24);  /* 96px */
+
+
+  /* ─────────────────────────────────────────
+     4. ELEVATION (Shadows)
+     ───────────────────────────────────────── */
+
+  /* Layered shadows for realistic depth.
+     Level 0 = flat. Level 4 = modal / dialog. */
+  --shadow-0:  none;
+  --shadow-1:  0 1px 2px rgba(0, 0, 0, 0.04),
+               0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-2:  0 2px 4px rgba(0, 0, 0, 0.04),
+               0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-3:  0 4px 8px rgba(0, 0, 0, 0.06),
+               0 8px 24px rgba(0, 0, 0, 0.10);
+  --shadow-4:  0 8px 16px rgba(0, 0, 0, 0.08),
+               0 16px 48px rgba(0, 0, 0, 0.12);
+
+  /* Semantic shadow aliases */
+  --shadow-sm: var(--shadow-1);
+  --shadow-md: var(--shadow-2);
+  --shadow-lg: var(--shadow-3);
+  --shadow-xl: var(--shadow-4);
+
+  /* Colored shadow for gold accent elements */
+  --shadow-accent: 0 4px 12px rgba(255, 210, 0, 0.2);
+
+  /* Inner shadow for inset effects */
+  --shadow-inner: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+
+
+  /* ─────────────────────────────────────────
+     5. BORDERS & RADII
+     ───────────────────────────────────────── */
+
+  --radius-sm:   4px;
+  --radius-md:   6px;
+  --radius-lg:   8px;
+  --radius-xl:   12px;
+  --radius-2xl:  16px;
+  --radius-full: 9999px;
+
+  --border-thin:   1px solid var(--color-border);
+  --border-medium: 2px solid var(--color-border);
+
+
+  /* ─────────────────────────────────────────
+     6. MOTION
+     ───────────────────────────────────────── */
+
+  --duration-fast:   100ms;
+  --duration-normal: 200ms;
+  --duration-slow:   350ms;
+  --duration-slower:  500ms;
+
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in:      cubic-bezier(0.4, 0, 1, 1);
+  --ease-out:     cubic-bezier(0, 0, 0.2, 1);
+  --ease-spring:  cubic-bezier(0.34, 1.56, 0.64, 1);
+
+
+  /* ─────────────────────────────────────────
+     7. LAYOUT
+     ───────────────────────────────────────── */
+
+  --width-prose:     65ch;
+  --width-narrow:    640px;
+  --width-content:   820px;
+  --width-container: 1100px;
+  --width-wide:      1280px;
+
+  /* Z-index scale — prevents magic numbers in consuming projects */
+  --z-base:     0;
+  --z-raised:   10;
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-overlay:  300;
+  --z-modal:    400;
+  --z-toast:    500;
+
+
+  /* ─────────────────────────────────────────
+     8. COMPONENT TOKENS
+     Opinionated defaults for common patterns.
+     Consuming projects may override these.
+     ───────────────────────────────────────── */
+
+  /* Navigation */
+  --nav-height:  64px;
+  --nav-bg:      rgba(255, 255, 255, 0.97);
+  --nav-blur:    12px;
+
+  /* Cards */
+  --card-bg:      var(--color-surface);
+  --card-border:  var(--color-border-light);
+  --card-radius:  var(--radius-lg);
+  --card-padding: var(--space-lg);
+  --card-shadow:  var(--shadow-1);
+  --card-shadow-hover: var(--shadow-2);
+
+  /* Buttons */
+  --btn-radius:     var(--radius-md);
+  --btn-padding-x:  var(--space-6);
+  --btn-padding-y:  var(--space-3);
+  --btn-font-size:  var(--text-sm);
+  --btn-weight:     var(--weight-semibold);
+
+  /* Form inputs */
+  --input-radius:   var(--radius-md);
+  --input-border:   var(--color-border);
+  --input-focus:    var(--color-primary-700);
+  --input-bg:       var(--color-surface);
+  --input-padding:  var(--space-3) var(--space-4);
+}
+
+
+/* ─────────────────────────────────────────
+   9. PREFERS-COLOR-SCHEME (Future-proofing)
+   Dark mode mappings. Uncomment and populate
+   when dark mode is implemented.
+   ───────────────────────────────────────── */
+
+/*
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text:          var(--color-neutral-100);
+    --color-text-muted:    var(--color-neutral-300);
+    --color-text-faint:    var(--color-neutral-400);
+    --color-text-inverse:  var(--color-neutral-900);
+
+    --color-surface:       var(--color-neutral-900);
+    --color-surface-alt:   #1A1F2B;
+    --color-surface-raised: #242A38;
+    --color-surface-inverse: var(--color-neutral-50);
+
+    --color-border:        #2D3748;
+    --color-border-light:  #1F2937;
+    --color-border-strong: #4A5568;
+
+    --color-link:          var(--color-primary-400);
+    --color-link-hover:    var(--color-primary-300);
+
+    --nav-bg:              rgba(26, 32, 44, 0.95);
+    --card-bg:             var(--color-surface-raised);
+  }
+}
+*/
