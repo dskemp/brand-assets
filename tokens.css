@@ -9,8 +9,23 @@
    to inherit the full brand vocabulary.
 
    Versioning: append ?v=MAJOR.MINOR.PATCH to the URL.
-   Current version: 1.0.0
-   Last updated: 2026-02-24
+   Current version: 2.0.0
+   Last updated: 2026-03-31
+
+   ── Brand Origins ──────────────────────────────────────────
+   Palette derived from institutional affiliations:
+     • St. Mark's School of Texas — PMS 540 C navy, athletic gold
+     • Rice University            — Rice Blue #00205B
+     • UC Berkeley                — Berkeley Blue #002676,
+                                    California Gold #FDB515
+     • Justia Inc.                — Justia Blue #06357A
+     • Ropes & Gray LLP           — Dark navy wordmark
+
+   Print equivalents (for branded collateral):
+     Primary 800 (#002959)  ≈ Pantone 289 C  | CMYK 100 78 30 25
+     Primary 700 (#1E3A8A)  ≈ Pantone 2758 C | CMYK 88 70 0 0
+     Accent 500  (#FFD200)  ≈ Pantone 7405 C | CMYK 0 16 100 0
+     Accent 700  (#806800)  ≈ Pantone 133 C  | CMYK 18 28 100 10
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
@@ -20,7 +35,10 @@
      ───────────────────────────────────────── */
 
   /* 1a. Primary — Navy blue family
-     Derived from UC Berkeley (#003262) and Rice (#00205B). */
+     Blends Rice Blue (#00205B), UC Berkeley Blue (#002676),
+     St. Mark's PMS 540 C (≈ #003B6F), Justia Blue (#06357A),
+     and the Ropes & Gray dark navy wordmark.
+     Primary 800 sits nearest Rice Blue; Primary 700 nearest Justia Blue. */
   --color-primary-900: #001A3A;
   --color-primary-800: #002959;   /* ← brand primary */
   --color-primary-700: #1E3A8A;   /* ← mid-blue */
@@ -33,7 +51,13 @@
   --color-primary-50:  #F0F4FA;
 
   /* 1b. Accent — Gold
-     St. Mark's gold. Use sparingly: borders, highlights, focus rings. */
+     St. Mark's athletic gold, reinforced by UC Berkeley
+     California Gold (#FDB515). Use 500 for fills and highlights;
+     use 700–900 when gold must serve as an accessible text color
+     on light backgrounds (presentations, documents, logos). */
+  --color-accent-900: #3D3200;
+  --color-accent-800: #5C4B00;
+  --color-accent-700: #806800;   /* ← dark gold for accessible text (4.98:1 on white) */
   --color-accent-600: #C9A600;
   --color-accent-500: #FFD200;   /* ← brand gold */
   --color-accent-400: #FFE04D;
@@ -47,7 +71,7 @@
   --color-neutral-800: #2D3748;   /* ← text primary */
   --color-neutral-700: #4A5568;   /* ← text secondary, dark gray */
   --color-neutral-600: #718096;
-  --color-neutral-500: #8B9096;   /* ← secondary gray */
+  --color-neutral-500: #697077;   /* ← secondary gray (5.02:1 on white — AA compliant) */
   --color-neutral-400: #A0AEC0;
   --color-neutral-300: #CBD5E0;
   --color-neutral-200: #E2E8F0;
@@ -75,9 +99,9 @@
   --color-error-border: #EF9A9A;
 
   /* Warning */
-  --color-warning-700: #E65100;
-  --color-warning-600: #F57C00;
-  --color-warning-500: #FB8C00;
+  --color-warning-700: #BF360C;   /* darkened from #E65100 for AA compliance on warning-100 (5.11:1) */
+  --color-warning-600: #E65100;   /* shifted: old 700 becomes 600 */
+  --color-warning-500: #F57C00;
   --color-warning-100: #FFF3E0;
   --color-warning-border: #FFCC80;
 
@@ -89,16 +113,38 @@
   --color-info-border: #90CAF9;
 
 
-  /* 1e. Semantic role aliases
+  /* 1e. Extended palette — Supporting colors
+     For data visualization, charts, diagrams, and multi-category
+     interfaces. These harmonize with the navy/gold core palette
+     while providing enough chromatic variety for 4+ data series.
+     All pass WCAG AA (≥ 4.5:1) on white.
+
+     Teal draws from Rice Leaf Emerald (#005B50) and Berkeley
+     Green; slate and terracotta provide warm/cool counterpoints. */
+  --color-extend-teal:       #2A7B88;   /* 4.90:1 on white */
+  --color-extend-slate:      #6B5B73;   /* 6.23:1 on white */
+  --color-extend-terracotta: #AD4E2D;   /* 5.38:1 on white */
+  --color-extend-sage:       #4A7C59;   /* 4.86:1 on white */
+
+
+  /* 1f. Semantic role aliases
      Map palette values to functional roles.
      Consuming projects should prefer these over raw palette tokens
      when the usage is semantic (e.g., "the primary action color")
-     rather than decorative. */
+     rather than decorative.
+
+     Print note: for CMYK conversions of primary and accent brand
+     colors, see the header block at the top of this file. */
 
   --color-primary:       var(--color-primary-800);
   --color-primary-hover: var(--color-primary-700);
   --color-accent:        var(--color-accent-500);
   --color-accent-hover:  var(--color-accent-600);
+  --color-accent-text:   var(--color-accent-700);  /* gold for use as text on light bg */
+
+  /* On-surface tokens: text color when primary or accent is the background */
+  --color-on-primary:    var(--color-neutral-0);    /* white text on navy */
+  --color-on-accent:     var(--color-primary-800);  /* navy text on gold (9.90:1) */
 
   --color-text:          var(--color-neutral-800);
   --color-text-muted:    var(--color-neutral-700);
