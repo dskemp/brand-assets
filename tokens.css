@@ -14,12 +14,13 @@
 
    ── Brand Origins ──────────────────────────────────────────
    Palette derived from institutional affiliations:
-     • St. Mark's School of Texas — PMS 540 C navy, athletic gold
+     • St. Mark's School of Texas — PMS 540 C navy, Gold #FFD200
      • Rice University            — Rice Blue #00205B
      • UC Berkeley                — Berkeley Blue #002676,
                                     California Gold #FDB515
      • Justia Inc.                — Justia Blue #06357A
-     • Ropes & Gray LLP           — Dark navy wordmark
+     • Ropes & Gray LLP           — RG Dark Blue #01426A,
+                                    RG Blue #006699, RG Gray #727D84
 
    Print equivalents (for branded collateral):
      Primary 800 (#002959)  ≈ Pantone 289 C  | CMYK 100 78 30 25
@@ -38,7 +39,9 @@
      Blends Rice Blue (#00205B), UC Berkeley Blue (#002676),
      St. Mark's PMS 540 C (≈ #003B6F), Justia Blue (#06357A),
      and the Ropes & Gray dark navy wordmark.
-     Primary 800 sits nearest Rice Blue; Primary 700 nearest Justia Blue. */
+     Primary 800 sits nearest Rice Blue; Primary 700 nearest Justia Blue.
+     Ropes & Gray's RG Dark Blue (#01426A) falls between Primary 800
+     and St. Mark's PMS 540 C, confirming the shared navy corridor. */
   --color-primary-900: #001A3A;
   --color-primary-800: #002959;   /* ← brand primary */
   --color-primary-700: #1E3A8A;   /* ← mid-blue */
@@ -51,7 +54,7 @@
   --color-primary-50:  #F0F4FA;
 
   /* 1b. Accent — Gold
-     St. Mark's athletic gold, reinforced by UC Berkeley
+     St. Mark's Gold (#FFD200), reinforced by UC Berkeley
      California Gold (#FDB515). Use 500 for fills and highlights;
      use 700–900 when gold must serve as an accessible text color
      on light backgrounds (presentations, documents, logos). */
@@ -66,7 +69,9 @@
   --color-accent-100: #FFF9DB;
   --color-accent-50:  #FFFCED;
 
-  /* 1c. Neutral — Gray scale */
+  /* 1c. Neutral — Gray scale
+     Neutral 600–700 range aligns with Ropes & Gray's
+     RG Gray (#727D84) and RG Dark Gray (#545F66). */
   --color-neutral-900: #1A202C;
   --color-neutral-800: #2D3748;   /* ← text primary */
   --color-neutral-700: #4A5568;   /* ← text secondary, dark gray */

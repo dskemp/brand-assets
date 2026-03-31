@@ -9,7 +9,7 @@
   - **Warning 700 darkened** from #E65100 to #BF360C — old value failed AA (3.46:1) on its own warning-100 background; new value passes (5.11:1). Warning 600 shifted accordingly.
   - **Neutral 500 darkened** from #8B9096 to #697077 — old value failed AA (3.22:1) on white; new value passes (5.02:1).
   - **Extended palette defined:** Four supporting colors for data visualization and multi-category interfaces: teal (#2A7B88), slate (#6B5B73), terracotta (#AD4E2D), sage (#4A7C59). All pass AA on white.
-  - **Institutional provenance documented:** Added origin comments tracing primary/accent palette to St. Mark's School of Texas (PMS 540 C, athletic gold), Rice University (#00205B), UC Berkeley (#002676, California Gold #FDB515), Justia Inc. (#06357A), and Ropes & Gray LLP.
+  - **Institutional provenance documented:** Added origin comments tracing primary/accent palette to St. Mark's School of Texas (PMS 540 C navy, Gold #FFD200), Rice University (#00205B), UC Berkeley (#002676, California Gold #FDB515), Justia Inc. (#06357A), and Ropes & Gray LLP (RG Dark Blue #01426A, RG Blue #006699, RG Gray #727D84). Confirmed brand gold (#FFD200) is an exact match to St. Mark's Gold per smtexas.org. Ropes & Gray palette sourced from official brand guide.
   - **Print equivalents added:** Pantone and CMYK mappings for primary 800, primary 700, accent 500, and accent 700 documented in header block.
 
 ### Technical
