@@ -1,0 +1,18 @@
+# OS
+.DS_Store
+*.log
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Office temp
+~$*
+*.tmp
