@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-05-15
+
+### Substantive
+- **Brand package created.** Drafted comprehensive brand guidelines (`brand-guidelines.md`) covering color palette (with provenance, accessibility notes, and print equivalents), typography (typeface pairing, fluid type scale, heading conventions, measure), spacing (8px grid with semantic aliases), elevation, borders/radii, motion, layout containers, z-index scale, component defaults (nav, cards, buttons, inputs), accessibility requirements, and brief voice/tone guidance.
+- **Live style guide built** (`style-guide.html`). Self-contained HTML page importing `tokens.css` that renders all brand elements visually: color swatches for primary, accent, neutral, semantic, and extended palettes; on-surface contrast pairings; type specimens and full scale; spacing bars; shadow/elevation cards; border radius demos; and interactive component examples (nav, buttons, card, form inputs, alerts). Includes print equivalents table.
+
+- **Presentation typography formalized.** Updated `DK-Brand-v2.potx` to use EB Garamond (bold, 38pt) for slide headings across all 13 layouts that contain heading text. Georgia retained as theme-level fallback for machines without EB Garamond installed. Concourse T3 remains the body font. Added "Presentation Typefaces" section (§2.5) to `brand-guidelines.md` documenting the pairing, rationale for web/presentation divergence, fallback behavior, and cross-context summary.
+
+### Technical
+- Updated `README.md` with file inventory, quick-start instructions, and brand-at-a-glance summary (within COWORK markers).
+- Backed up original template as `DK-Brand-v2.potx.bak` before modifying.
+
 ## 2026-03-31
 
 ### Substantive
