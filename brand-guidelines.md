@@ -177,15 +177,62 @@ Presentations use a different pairing optimized for projected display at large s
 
 **EB Garamond** (serif) serves as the heading typeface in slide decks. It is an old-style serif with high stroke contrast that looks refined and elegant at 36pt+ — qualities that reward the large rendering sizes typical of slide headings. EB Garamond also carries an institutional connection to Ropes & Gray LLP. It is freely available from Google Fonts (OFL license; embedding unrestricted).
 
+**Weight rule for EB Garamond:** never heavier than SemiBold. The family ships in Regular (400), Medium (500), SemiBold (600), Bold (700), and ExtraBold (800). In this template, body text uses Medium, and headings that need weight use SemiBold. Bold and ExtraBold are not used — they read as too dense at slide sizes and overpower the surrounding palette. When a heading element calls for emphasis above Medium, set the typeface to `EB Garamond SemiBold` with the bold attribute off (`b="0"`); do not apply `b="1"` to any Garamond variant, because that asks PowerPoint to synthesize a bold-on-top-of-named-weight and lands one weight step too heavy.
+
 **Concourse T3** (sans-serif) serves as the body typeface in slide decks. Designed by Matthew Butterick, the T3 weight is calibrated for running text rather than display. It is a commercial font from MB Type; confirm that the license permits .pptx embedding before distributing decks with embedded fonts.
 
 #### Presentation Typography Summary
 
-| Element | Font | Size | Weight |
+Slide titles use EB Garamond. Size and weight depend on the layout’s role: working content titles are set at a smaller size in regular weight, where the serif reads more elegantly without added weight; titles that anchor a slide on their own (hero, section, caption, display) step up in size and switch to bold for impact.
+
+| Title role | Layouts | Size | Weight |
 |---|---|---|---|
-| Slide title | EB Garamond | 38pt | Bold |
-| Body text (level 1) | Concourse T3 | 20pt | Regular |
-| Body text (level 2) | Concourse T3 | 16pt | Regular |
+| Content | Single Content Block, Two Column, Two Column with Headings, Text + Image, Image + Text, Three Key Points, Discussion Slide | 30pt | Regular |
+| Caption | Full Bleed Image with Caption | 26pt | Bold |
+| Section | Section Divider | 34pt | Bold |
+| Hero | Title Slide | 38pt | Bold |
+| Display | Thank You | 42pt | Bold |
+
+All content-layout title placeholders use `anchor="b"` (bottom-anchored text), which places the title baseline at the bottom of the placeholder. The small gold title-underline rule sits at y = 0.80 in, right at that baseline, so it reads as a true title underline rather than a floating accent.
+
+Body text uses Concourse T3 across all layouts (except the Discussion prompt and the Quote body, which keep EB Garamond at large size for editorial weight). Body sizes step down by level so nested content stays legible without crowding:
+
+| Body level | Default | Single Content Block | Three Key Points (cards) |
+|---|---|---|---|
+| Level 1 | 20pt | 24pt | 16pt |
+| Level 2 | 16pt | 20pt | 14pt |
+| Level 3 | 14pt | 16pt | 12pt |
+| Levels 4–9 | 12pt | 16pt | 12pt |
+
+Two special body roles override the default:
+
+| Role | Font | Size | Notes |
+|---|---|---|---|
+| Quote body (Layout 7) | EB Garamond Italic | 22pt | Pull-quote register. Same size, glyph, and gold-rule position as Poll; only the italic distinguishes Quote so the text reads as a citation rather than a question. |
+| Poll body (Layout 8) | EB Garamond Roman | 22pt | Direct prompt register. Same size and structure as Quote; roman (non-italic) so the question reads as direct interrogation. |
+| Discussion prompt (Layout 12, left column) | EB Garamond | 24pt | The Discussion Slide pairs the prompt on the left (~60 % width) with a small “INSTRUCTIONS” eyebrow + Concourse T3 instructions block on the right (~35 % width), separated by a thin vertical gold rule. The split lets a long prompt breathe without dropping into a stack with the instructions. |
+
+#### Line Spacing and Space After
+
+Line spacing is set tight across the template, with the visual breathing room provided by space-after rather than leading. The rules:
+
+- Line spacing is 110% for all Concourse T3 (sans) blocks and titles.
+- Line spacing is 115% for the two large serif blocks: the Quote body (22pt) and the Discussion prompt (26pt). Garamond’s tall optical body needs slightly more leading at display sizes.
+- Space-after is set to 60% of the font size in points: 9.6pt for 16pt text, 10.8pt for 18pt text, 12pt for 20pt, 13.2pt for 22pt, 14.4pt for 24pt, 15.6pt for 26pt. (Tightened from 80% on 2026-05-24 to keep bullet rhythm from feeling sparse with five or more items.)
+- Space-before is always 0.
+
+This produces a rhythm where paragraphs sit close on a line but breathe between blocks. It also keeps multi-paragraph bullets from running together.
+
+#### Use of the Gold Accent in Slides
+
+Gold is used sparingly, as a structural device rather than a decoration. The template carries gold in only four roles:
+
+- A short rule under each slide title, acting as a title underline (content layouts 4, 5, 6, 9, 10, 13).
+- A thin gold left edge on the white content card (content layouts 4, 5, 6, 9, 10).
+- A short rule under the “Section 0X” eyebrow on the Section Divider, and under the attribution on the Quote layout.
+- A separator hairline between image and caption band on the Full Bleed Image with Caption layout.
+
+A full-width gold bar at the bottom of every slide previously appeared in earlier versions of the template; it was removed in May 2026 because it overlapped the slide-number placeholder and made the gold feel ornamental rather than structural.
 
 #### Fallback Behavior
 
